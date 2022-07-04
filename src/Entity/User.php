@@ -25,6 +25,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string')]
     private $password;
 
+    #[ORM\Column(type: 'string')]
+    private $companyName;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private ?\DateTime $registrationDate = null;
+
+    public function __construct()
+    {
+        $this->registrationDate = new \DateTime();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -39,6 +50,42 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->login = $login;
 
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCompanyName()
+    {
+        return $this->companyName;
+    }
+
+    /**
+     * @param mixed $companyName
+     * @return User
+     */
+    public function setCompanyName($companyName)
+    {
+        $this->companyName = $companyName;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getRegistrationDate(): ?\DateTime
+    {
+        return $this->registrationDate;
+    }
+
+    /**
+     * @param \DateTime|null $registrationDate
+     * @return User
+     */
+    public function setRegistrationDate(?\DateTime $registrationDate): User
+    {
+        $this->registrationDate = $registrationDate;
         return $this;
     }
 

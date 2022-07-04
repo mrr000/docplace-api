@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\ProjectCustomer;
+use App\Entity\ProjectWorkListPosition;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<ProjectCustomer>
+ * @extends ServiceEntityRepository<ProjectWorkListPosition>
  *
- * @method ProjectCustomer|null find($id, $lockMode = null, $lockVersion = null)
- * @method ProjectCustomer|null findOneBy(array $criteria, array $orderBy = null)
- * @method ProjectCustomer[]    findAll()
- * @method ProjectCustomer[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method ProjectWorkListPosition|null find($id, $lockMode = null, $lockVersion = null)
+ * @method ProjectWorkListPosition|null findOneBy(array $criteria, array $orderBy = null)
+ * @method ProjectWorkListPosition[]    findAll()
+ * @method ProjectWorkListPosition[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ProjectCustomerRepository extends ServiceEntityRepository
+class ProjectWorkListPositionRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ProjectCustomer::class);
+        parent::__construct($registry, ProjectWorkListPosition::class);
     }
 
-    public function add(ProjectCustomer $entity, bool $flush = false): void
+    public function add(ProjectWorkListPosition $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class ProjectCustomerRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(ProjectCustomer $entity, bool $flush = false): void
+    public function remove(ProjectWorkListPosition $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class ProjectCustomerRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return ProjectCustomer[] Returns an array of ProjectCustomer objects
+//     * @return ProjectWorkListPosition[] Returns an array of ProjectWorkListPosition objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class ProjectCustomerRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?ProjectCustomer
+//    public function findOneBySomeField($value): ?ProjectWorkListPosition
 //    {
 //        return $this->createQueryBuilder('p')
 //            ->andWhere('p.exampleField = :val')
